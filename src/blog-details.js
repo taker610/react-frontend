@@ -29,6 +29,8 @@ const BlogDetails = () => {
             method: "DELETE"            
         }).then(() => {
             history.push('/')
+        }).catch(err => {
+            console.log(err.message)
         })
     }
     
@@ -36,6 +38,7 @@ const BlogDetails = () => {
         <div className='blog-details'>
             <article className='create'>
                 <h2>{blog.title}</h2>
+                <p>{blog.category}</p>
                 <p>Written by {blog.author}</p>
                 <div className='blog-body'>{blog.content}</div>
                 <button onClick={handleClick} className='delete'>Delete</button>
